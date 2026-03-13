@@ -8,7 +8,7 @@
 
 <br /><br />
 
-# 📄 ResumeLab — ATS-Friendly Resume Maker
+## 📄 ResumeLab — ATS-Friendly Resume Maker
 
 **A Flutter mobile app that helps job seekers build professional, ATS-optimized resumes and export them as PDF — in minutes.**
 
@@ -281,6 +281,8 @@ Made with ❤️ using Flutter
 ⭐ Star this repo if it helped you land your dream job!
 
 </div>
-#   R e s u m e L a b  
- #   R e s u m e L a b  
+#   R e s u m e L a b 
+ 
+ #   R e s u m e L a b 
+ 
  
