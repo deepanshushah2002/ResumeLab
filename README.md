@@ -1,19 +1,27 @@
 <div align="center">
 
-<img src="https://img.shields.io/badge/Flutter-3.x-02569B?style=for-the-badge&logo=flutter&logoColor=white" />
+<img src="https://img.shields.io/badge/Flutter-3.38-02569B?style=for-the-badge&logo=flutter&logoColor=white" />
 <img src="https://img.shields.io/badge/Dart-3.x-0175C2?style=for-the-badge&logo=dart&logoColor=white" />
-<img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge" />
 <img src="https://img.shields.io/badge/Platform-Android%20%7C%20iOS-lightgrey?style=for-the-badge" />
-<img src="https://img.shields.io/badge/ATS%20Pass%20Rate-90%25-success?style=for-the-badge" />
+<img src="https://img.shields.io/badge/License-MIT-22C55E?style=for-the-badge" />
+<img src="https://img.shields.io/badge/ATS%20Pass%20Rate-90%25+-1B4FE4?style=for-the-badge" />
 
 <br /><br />
 
-# 📄 ResumeLab — ATS-Friendly Resume Maker
+<img src="https://img.shields.io/badge/Material_3-Design-1B4FE4?style=flat-square" />
+<img src="https://img.shields.io/badge/Offline--First-✓-22C55E?style=flat-square" />
+<img src="https://img.shields.io/badge/Dark%20Mode-✓-1a1a2e?style=flat-square" />
+<img src="https://img.shields.io/badge/6%20PDF%20Templates-✓-F59E0B?style=flat-square" />
 
-**A Flutter mobile app that helps job seekers build professional, ATS-optimized resumes and export them as PDF — in minutes.**
+<br /><br />
 
-## ScreenShort
-image upload soon
+# 📄 ResumeLab
+
+### ATS-Optimized Resume Builder for Android & iOS
+
+**Build professional, ATS-safe resumes in minutes. Export as PDF. Get hired faster.**
+
+[Features](#-features) · [Getting Started](#-getting-started) · [Templates](#-pdf-templates) · [Architecture](#-architecture) · [ATS Score](#-ats-score-system) · [Roadmap](#-roadmap)
 
 </div>
 
@@ -21,30 +29,17 @@ image upload soon
 
 ## ✨ Features
 
-| | Feature | Details |
+| | Feature | Description |
 |---|---|---|
-| 🧑‍💼 | **7-Step Resume Builder** | Guided form across Personal Info, Experience, Education, Skills, Projects, Certifications, Languages |
-| 📄 | **3 ATS-Safe PDF Templates** | Minimal Professional · Modern Clean · Compact Resume |
-| 📊 | **Live ATS Score** | Real-time 0–100 compatibility score with improvement suggestions |
-| 💡 | **Role-Based Keyword Suggestions** | Auto-suggest skills by job role (Flutter Dev, Data Analyst, etc.) |
-| 📤 | **Export Anywhere** | Download PDF, share via email/WhatsApp, or print directly |
-| 💾 | **Offline-First** | Full local storage — no internet required |
-| 🎨 | **Live Template Switching** | Preview how your resume looks across all 3 templates instantly |
-| ✅ | **Form Validation** | Helpful inline errors prevent incomplete submissions |
-
----
-
-## 📱 Screenshots
-
-> *All screens built with Material 3 + Google Fonts (DM Sans)*
-
-| Splash | Home | Builder | Skills |
-|--------|------|---------|--------|
-| Animated gradient intro | Resume dashboard with score badges | 7-step guided form | Role-based keyword chips |
-
-| PDF Preview | ATS Score | Template Picker | Add Experience |
-|-------------|-----------|-----------------|----------------|
-| Live resume layout | Circular score + breakdown | 3 templates with ATS notes | Bottom sheet form |
+| 🧑‍💼 | **7-Step Guided Builder** | Personal Info → Experience → Education → Skills → Projects → Certifications → Languages |
+| 📄 | **6 ATS-Safe PDF Templates** | Minimal Pro · Modern Clean · Compact Dark · Executive · Teal Accent · Two Column |
+| 📊 | **Real-Time ATS Score** | Live 0–100 score with weighted breakdown and actionable improvement tips |
+| 💡 | **Role-Based Keyword Chips** | Auto-suggests relevant skills for Flutter Dev, Data Analyst, UI/UX, Backend, Frontend & more |
+| 🌙 | **Dark / Light / System Theme** | Full Material 3 dark mode with persistent theme preference |
+| 📤 | **Native Share Sheet Export** | Save to Downloads, Google Drive, Files app, or share via WhatsApp/email |
+| 💾 | **Offline-First** | All data stored locally with SharedPreferences — no internet required |
+| 🎨 | **Visual Template Picker** | Live preview cards showing the actual layout of each template before selecting |
+| ✅ | **Multi-Resume Support** | Create, edit, preview and manage multiple resumes from the home dashboard |
 
 ---
 
@@ -52,22 +47,22 @@ image upload soon
 
 ### Prerequisites
 
-- [Flutter 3.x](https://docs.flutter.dev/get-started/install)
+- [Flutter 3.27+](https://docs.flutter.dev/get-started/install) (tested on 3.38.5)
 - Dart 3.x
 - Android Studio / VS Code
-- A physical device or emulator
+- Android emulator or physical device (minSdk 21) · iOS Simulator or device (iOS 13+)
 
 ### Installation
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/your-username/resume_lab.git
-cd resume_lab
+git clone https://github.com/deepanshushah2002/ResumeLab.git
+cd ResumeLab
 
 # 2. Install dependencies
 flutter pub get
 
-# 3. Run on your connected device or emulator
+# 3. Run
 flutter run
 ```
 
@@ -77,7 +72,7 @@ flutter run
 # Android APK
 flutter build apk --release
 
-# Android App Bundle (for Play Store)
+# Android App Bundle (Play Store)
 flutter build appbundle --release
 
 # iOS (requires macOS + Xcode)
@@ -88,24 +83,24 @@ flutter build ios --release
 
 ## ⚙️ Platform Setup
 
-### Android
-
-Add to `android/app/src/main/AndroidManifest.xml`:
+### Android — `android/app/src/main/AndroidManifest.xml`
 
 ```xml
 <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 ```
 
-Set minimum SDK in `android/app/build.gradle`:
+### Android — `android/app/build.gradle`
 
 ```gradle
-minSdkVersion 21
+android {
+    defaultConfig {
+        minSdkVersion 21
+    }
+}
 ```
 
-### iOS
-
-Add to `ios/Runner/Info.plist`:
+### iOS — `ios/Runner/Info.plist`
 
 ```xml
 <key>NSPhotoLibraryAddUsageDescription</key>
@@ -116,34 +111,50 @@ Add to `ios/Runner/Info.plist`:
 
 ---
 
+## 🎨 PDF Templates
+
+All 6 templates output ATS-compliant PDFs using the **Lato** font (via `PdfGoogleFonts`). Content that doesn't fit on page 1 automatically flows to page 2 using `MultiPage`.
+
+| ID | Name | Layout | Best For |
+|---|---|---|---|
+| `minimal` | **Minimal Pro** | Single-column, white, blue accents | Maximum ATS compatibility |
+| `modern` | **Modern Clean** | Blue sidebar + white body | Tech & creative roles |
+| `compact` | **Compact Dark** | Dark navy header, two-column body | Space-efficient, multiple roles |
+| `executive` | **Executive** | Centred name, letter-spaced headings | Senior & leadership roles |
+| `teal` | **Teal Accent** | Teal header bar + teal skill pills | Fresh graduates, design roles |
+| `minimal_two_col` | **Two Column** | Indigo header, sidebar (skills/edu/certs) + main (exp/projects) | Organized, information-dense |
+
+---
+
 ## 🗂 Project Structure
 
 ```
 lib/
-├── main.dart                          # App entry + SplashScreen
+├── main.dart                          # Entry point + SplashScreen + MultiProvider setup
 │
 ├── theme/
-│   └── app_theme.dart                 # Material 3 theme, colors, typography
+│   └── app_theme.dart                 # Material 3 light & dark themes, context-aware color helpers
 │
 ├── models/
-│   └── resume_model.dart              # Data models + ATS scoring logic + role keywords
+│   └── resume_model.dart              # Data models, ATS scoring, role keyword map, JSON serialization
 │
 ├── providers/
-│   └── resume_provider.dart           # ChangeNotifier state management
+│   ├── resume_provider.dart           # Resume CRUD, persistence via SharedPreferences
+│   └── theme_provider.dart            # Light / Dark / System theme toggle with persistence
 │
 ├── services/
-│   └── pdf_service.dart               # PDF generation (3 templates via pdf package)
+│   └── pdf_service.dart               # 6 PDF template builders (MultiPage), generatePdfBytes, printResume
 │
 └── screens/
-    ├── home_screen.dart               # Dashboard — list, score badges, CRUD
-    ├── create_resume_screen.dart      # Stepper shell with progress indicator
-    ├── preview_screen.dart            # Preview + Score + Template tabs + export bar
+    ├── home_screen.dart               # Dashboard — resume cards, score badges, theme toggle
+    ├── create_resume_screen.dart      # 7-step PageView with progress stepper
+    ├── preview_screen.dart            # Preview tab + ATS Score tab + Template picker + Export bar
     │
     └── sections/
-        ├── personal_info_screen.dart  # Step 1 — contact details + summary
+        ├── personal_info_screen.dart  # Step 1 — name, contact, summary
         ├── work_experience_screen.dart # Step 2 — experience cards + bottom sheet form
-        ├── education_screen.dart      # Steps 3–7 — edu, skills, projects, certs, langs
-        ├── skills_screen.dart
+        ├── education_screen.dart      # Steps 3–7 — education, skills (with keyword chips), projects,
+        ├── skills_screen.dart         #              certifications, languages
         ├── projects_screen.dart
         ├── certifications_screen.dart
         └── languages_screen.dart
@@ -155,135 +166,136 @@ lib/
 
 | Package | Version | Purpose |
 |---|---|---|
-| [`provider`](https://pub.dev/packages/provider) | ^6.1.1 | State management |
+| [`provider`](https://pub.dev/packages/provider) | ^6.1.1 | State management (ChangeNotifier) |
 | [`pdf`](https://pub.dev/packages/pdf) | ^3.10.8 | PDF document generation |
-| [`printing`](https://pub.dev/packages/printing) | ^5.12.0 | Print / share / download PDF |
-| [`path_provider`](https://pub.dev/packages/path_provider) | ^2.1.2 | Local file system access |
-| [`shared_preferences`](https://pub.dev/packages/shared_preferences) | ^2.2.2 | Persistent local resume storage |
-| [`google_fonts`](https://pub.dev/packages/google_fonts) | ^6.2.1 | DM Sans typeface |
+| [`printing`](https://pub.dev/packages/printing) | ^5.12.0 | Native share sheet PDF export & print |
+| [`shared_preferences`](https://pub.dev/packages/shared_preferences) | ^2.2.2 | Offline resume + theme persistence |
+| [`path_provider`](https://pub.dev/packages/path_provider) | ^2.1.2 | Local filesystem access |
+| [`google_fonts`](https://pub.dev/packages/google_fonts) | ^6.2.1 | DM Sans UI font |
 | [`share_plus`](https://pub.dev/packages/share_plus) | ^7.2.2 | System share sheet |
 | [`uuid`](https://pub.dev/packages/uuid) | ^4.3.3 | Unique IDs for resume entries |
 | [`percent_indicator`](https://pub.dev/packages/percent_indicator) | ^4.2.3 | Circular ATS score ring |
 | [`intl`](https://pub.dev/packages/intl) | ^0.19.0 | Date formatting |
-
----
-
-## 🎯 ATS Compliance
-
-All 3 PDF templates are built around the following ATS best practices:
-
-| Rule | Implementation |
-|---|---|
-| No tables or complex graphics | Single-column or simple 2-column layouts only |
-| ATS-safe fonts | Lato (via `PdfGoogleFonts`) — universally parseable |
-| Standard section headings | SUMMARY · EXPERIENCE · EDUCATION · SKILLS · PROJECTS · CERTIFICATIONS |
-| No text in images | 100% selectable text throughout |
-| Keyword density | Role-based keyword suggestions embedded directly in the form |
-| Logical reading order | Linear document flow from top to bottom |
+| [`flutter_animate`](https://pub.dev/packages/flutter_animate) | ^4.5.0 | UI animations |
+| [`image_picker`](https://pub.dev/packages/image_picker) | ^1.0.7 | Profile photo (optional) |
 
 ---
 
 ## 🏗 Architecture
 
 ```
-UI (Screens)
-    │
-    ▼
-ResumeProvider (ChangeNotifier)     ← single source of truth
-    │
-    ├─▶ ResumeModel                 ← plain Dart data classes
-    │       ├── PersonalInfo
-    │       ├── WorkExperience[]
-    │       ├── Education[]
-    │       ├── skills: List<String>
-    │       ├── Project[]
-    │       ├── Certification[]
-    │       └── Language[]
-    │
-    ├─▶ SharedPreferences           ← JSON serialization for local persistence
-    │
-    └─▶ PdfService                  ← stateless, generates PDF from ResumeModel
-            ├── Minimal template
-            ├── Modern template
-            └── Compact template
+┌─────────────────────────────────────────────┐
+│                  UI Layer                    │
+│  HomeScreen → CreateResumeScreen            │
+│            → PreviewScreen                  │
+└───────────────────┬─────────────────────────┘
+                    │ reads / writes
+        ┌───────────┴───────────┐
+        │                       │
+┌───────▼────────┐   ┌──────────▼────────┐
+│ ResumeProvider │   │  ThemeProvider    │
+│ (ChangeNotifier│   │ (ChangeNotifier)  │
+└───────┬────────┘   └──────────┬────────┘
+        │                       │
+        ▼                       ▼
+┌───────────────┐    ┌─────────────────────┐
+│  ResumeModel  │    │  SharedPreferences  │
+│  ├ PersonalInfo│   │  (JSON + theme key) │
+│  ├ WorkExp[]  │    └─────────────────────┘
+│  ├ Education[]│
+│  ├ skills[]   │
+│  ├ Project[]  │
+│  ├ Cert[]     │
+│  └ Language[] │
+└───────┬───────┘
+        │
+        ▼
+┌───────────────────────────────────┐
+│           PdfService              │
+│  generatePdfBytes() → Uint8List   │
+│  printResume()                    │
+│  ├ _buildMinimalTemplate          │
+│  ├ _buildModernTemplate           │
+│  ├ _buildCompactTemplate          │
+│  ├ _buildExecutiveTemplate        │
+│  ├ _buildTealTemplate             │
+│  └ _buildTwoColumnTemplate        │
+└───────────────────────────────────┘
 ```
 
-**State flow:** User fills forms → provider updates `currentResume` → `saveCurrentResume()` persists to `SharedPreferences` → `PdfService.generatePdf()` renders final document.
+**State flow:** User fills form → `ResumeProvider` updates `currentResume` → `saveCurrentResume()` serializes to `SharedPreferences` → `PdfService.generatePdfBytes()` builds PDF → `Printing.sharePdf()` opens native share sheet.
 
 ---
 
-## 📊 ATS Score Breakdown
+## 📊 ATS Score System
 
-The score is calculated in real-time as the user fills in their resume:
+Score is calculated live in `ResumeModel.resumeScore` as sections are filled:
 
-| Section | Points |
+| Criteria | Points |
 |---|---|
-| Full name present | +10 |
+| Full name | +10 |
 | Professional summary | +15 |
 | Work experience | +25 |
 | Education | +15 |
-| 5+ skills added | +10 |
+| 5 or more skills | +10 |
 | Email address | +5 |
 | Phone number | +5 |
 | LinkedIn URL | +5 |
-| Projects added | +5 |
+| Projects | +5 |
 | Certifications | +5 |
-| **Max total** | **100** |
+| **Maximum** | **100** |
 
-Scores ≥ 80 are considered **Excellent** ATS compatibility.
+| Score Range | Rating |
+|---|---|
+| 80 – 100 | ✅ Excellent — strong ATS pass likelihood |
+| 50 – 79 | ⚠️ Good — a few sections to complete |
+| 0 – 49 | ❌ Needs work — key sections missing |
 
 ---
 
 ## 🔮 Roadmap
 
-- [ ] Firebase Authentication + cloud sync
-- [ ] AI-powered professional summary generator (Claude API)
-- [ ] Cover letter generator
-- [ ] LinkedIn profile import
-- [ ] Resume analytics dashboard
+- [ ] Firebase Authentication + cloud backup
+- [ ] AI-powered summary generator (Gemini / Claude API)
+- [ ] Cover letter builder
 - [ ] Job description keyword matcher
-- [ ] Multi-language UI support
-- [ ] Dark mode
+- [ ] LinkedIn profile import
+- [ ] Resume analytics & view tracking
+- [ ] Multi-language UI
+- [ ] Play Store & App Store release
 
 ---
 
 ## 🤝 Contributing
 
-Contributions are welcome! Please follow these steps:
+Contributions are welcome!
 
-1. Fork the repo
-2. Create a feature branch: `git checkout -b feature/your-feature-name`
-3. Commit your changes: `git commit -m 'Add some feature'`
-4. Push to the branch: `git push origin feature/your-feature-name`
-5. Open a Pull Request
+```bash
+# 1. Fork and clone
+git checkout -b feature/your-feature-name
 
-Please make sure your code passes `flutter analyze` and is formatted with `dart format .` before submitting.
+# 2. Make your changes, then
+flutter analyze
+dart format .
+
+# 3. Push and open a PR
+git push origin feature/your-feature-name
+```
+
+Please keep PRs focused on a single feature or fix. Include screenshots for UI changes.
 
 ---
 
 ## 📄 License
 
-This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.
-
----
-
-## 🙏 Acknowledgements
-
-- [Flutter](https://flutter.dev) — UI framework
-- [pdf](https://pub.dev/packages/pdf) — PDF generation
-- [printing](https://pub.dev/packages/printing) — cross-platform print/share
+MIT License — see [LICENSE](LICENSE) for details.
 
 ---
 
 <div align="center">
 
-Made with ❤️ using Flutter
+Built with ❤️ using Flutter by [Deepanshu Shah](https://github.com/deepanshushah2002)
 
-⭐ Star this repo if it helped you land your dream job!
+**⭐ Star this repo if ResumeLab helped you land your next role!**
 
 </div>
-#   R e s u m e L a b 
- 
- #   R e s u m e L a b 
- 
- 
